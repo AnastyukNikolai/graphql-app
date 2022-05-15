@@ -18,6 +18,10 @@ func (r *mutationResolver) CreateReminder(ctx context.Context, input model.NewRe
 	return repo.CreateReminder(&input)
 }
 
+func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
+	return repo.GetAllUsers()
+}
+
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	return repo.GetAllTodos()
 }

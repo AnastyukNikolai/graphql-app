@@ -3,8 +3,9 @@ package repositories
 import (
 	"context"
 	"graphql-app/ent"
-	"graphql-app/ent/todo"
 	"graphql-app/graph/model"
+
+	"graphql-app/ent/todo"
 
 	_ "google.golang.org/genproto/googleapis/rpc/status"
 )
@@ -22,6 +23,7 @@ func (r *TodoItemRepositoryEnt) CreateTodo(item *model.NewTodo) (*model.Todo, er
 		Create().
 		SetText(item.Text).
 		SetDone(false).
+		SetUserID(item.UserID).
 		Save(context.Background())
 	if err != nil {
 		return &model.Todo{}, err

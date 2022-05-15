@@ -23,6 +23,8 @@ type Repository struct {
 
 type User interface {
 	GetUserById(userId int) (user *model.User, err error)
+	GetAllUsers() ([]*model.User, error)
+	CreateUser(item *model.NewUser) (*model.User, error)
 }
 
 type TodoItem interface {

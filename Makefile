@@ -13,3 +13,6 @@ test:
 
 download:
 	go mod download
+
+seed:
+	go run ./cmd/seed.go

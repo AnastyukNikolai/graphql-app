@@ -6,6 +6,7 @@ type User {
   id: Int!
   name: String!
   creditCard: String!
+  todos: [Todo!]!
 }
 
 type Todo {
@@ -13,6 +14,7 @@ type Todo {
   text: String!
   done: Boolean!
   user: User!
+  reminders: [Reminder!]!
 }
 
 type Reminder {
@@ -22,8 +24,14 @@ type Reminder {
 }
 
 type Query {
+  users: [User!]!
   todos: [Todo!]!
   reminders: [Reminder!]!
+}
+
+input NewUser {
+  name: String!
+  creditCard: String!
 }
 
 input NewTodo {

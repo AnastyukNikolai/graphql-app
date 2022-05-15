@@ -12,6 +12,11 @@ type NewTodo struct {
 	UserID int    `json:"userId"`
 }
 
+type NewUser struct {
+	Name       string `json:"name"`
+	CreditCard string `json:"creditCard"`
+}
+
 type Reminder struct {
 	ID   int    `json:"id"`
 	Text string `json:"text"`
@@ -19,14 +24,16 @@ type Reminder struct {
 }
 
 type Todo struct {
-	ID   int    `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
+	ID        int         `json:"id"`
+	Text      string      `json:"text"`
+	Done      bool        `json:"done"`
+	User      *User       `json:"user"`
+	Reminders []*Reminder `json:"reminders"`
 }
 
 type User struct {
-	ID         int    `json:"id"`
-	Name       string `json:"name"`
-	CreditCard string `json:"creditCard"`
+	ID         int     `json:"id"`
+	Name       string  `json:"name"`
+	CreditCard string  `json:"creditCard"`
+	Todos      []*Todo `json:"todos"`
 }

@@ -32,7 +32,7 @@ func main() {
 		port = defaultPort
 	}
 
-	if err := initConfig(); err != nil {
+	if err := InitConfig(); err != nil {
 		logrus.Fatalf("error initializing configs: %s", err.Error())
 	}
 
@@ -61,7 +61,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
-func initConfig() error {
+func InitConfig() error {
 	viper.AddConfigPath("configs")
 	viper.SetConfigName("config")
 	return viper.ReadInConfig()
